@@ -68,6 +68,14 @@ For example, to temporarily disable Uncatch, run your app thusly:
 NO_UNCATCH=1 node your-app.js
 ```
 
+## Other Modules
+
+What about the [uncaught](https://www.npmjs.com/package/uncaught) module?  This module came close to what I needed, but it doesn't emit the error to STDERR, and it doesn't call `process.exit()` after all its listeners execute.
+
+What about the [uncaught-exception](https://www.npmjs.com/package/uncaught-exception) module?  It has weird requirements, seems to be built around statsd, usage is confusing, and the README says things like "v0.10 only".  It rubbed me the wrong way.
+
+What about the [exception](https://www.npmjs.com/package/exception) module?  This module is rather nifty, but it doesn't solve the problem where multiple modules all need to run uncaught exception code.  Also, it has native module requirements (like [heapdump](https://www.npmjs.com/package/heapdump)).
+
 ## License
 
 The MIT License (MIT)
