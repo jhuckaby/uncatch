@@ -1,0 +1,22 @@
+{
+  "name": "uncatch",
+  "version": "1.0.0",
+  "description": "Global uncaught exception handler",
+  "author": "Joseph Huckaby <jhuckaby@gmail.com>",
+  "homepage": "https://github.com/jhuckaby/uncatch",
+  "license": "MIT",
+  "main": "uncatch.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jhuckaby/uncatch"
+  },
+  "bugs": {
+    "url": "https://github.com/jhuckaby/uncatch/issues"
+  },
+  "keywords": [
+    "uncaught",
+    "exception"
+  ],
+  "dependencies": {},
+  "devDependencies": {}
+}
