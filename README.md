@@ -2,6 +2,8 @@
 
 **Uncatch** is a cooperative uncaught exception manager, which allows multiple modules to register listeners for uncaught exceptions, and *all of them will be executed* before the process finally exits.  The module also handles emitting the error and stack trace to STDERR.
 
+As of v1.0.3, Uncatch also treats all [unhandled rejections](https://nodejs.org/api/process.html#process_event_unhandledrejection) as if they were unhandled exceptions.  This is the [default behavior in Node.js v15+ anyway](https://nodejs.org/api/deprecations.html#DEP0018), and it allows both of these events to be handled in the same cooperative way in older Node.js versions.
+
 ### Why
 
 The reason for this module is that Node.js behaves differently when you register an [uncaught exception handler](https://nodejs.org/api/process.html#process_event_uncaughtexception).  If any listeners are defined for this global event, then the stack trace is no longer emitted to the console, and the process does not exit.  It is up to your listener code to handle both operations.  This is bad because multiple modules may all want to execute their own emergency shutdown / cleanup code, especially in larger applications, but if any of them were to call `process.exit()` ([as they should](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly)) then not all the listeners get a chance to execute.
@@ -86,9 +88,9 @@ NO_UNCATCH=1 node your-app.js
 
 ## License
 
-The MIT License (MIT)
+**The MIT License (MIT)**
 
-Copyright (c) 2017 Joseph Huckaby
+*Copyright (c) 2017 - 2021 Joseph Huckaby*
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

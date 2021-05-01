@@ -21,4 +21,9 @@ if (!process.env.NO_UNCATCH) {
 		if (!process.env.NO_UNERROR) console.error(err);
 		if (!process.env.NO_UNEXIT) process.exit( Uncatch.exitCode );
 	});
+	process.on('unhandledRejection', function(err) {
+		Uncatch.emit('uncaughtException', err);
+		if (!process.env.NO_UNERROR) console.error(err);
+		if (!process.env.NO_UNEXIT) process.exit( Uncatch.exitCode );
+	});
 }
