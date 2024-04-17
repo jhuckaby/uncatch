@@ -37,7 +37,7 @@ npm install uncatch --save
 Use it in your modules like this:
 
 ```js
-var Uncatch = require('uncatch');
+const Uncatch = require('uncatch');
 
 Uncatch.on('uncaughtException', function(err) {
 	// execute your own application shutdown routine here
@@ -48,7 +48,7 @@ Uncatch.on('uncaughtException', function(err) {
 // ...in some other module...
 //
 
-var Uncatch = require('uncatch');
+const Uncatch = require('uncatch');
 
 Uncatch.on('uncaughtException', function(err) {
 	// this code will ALSO run!
@@ -72,7 +72,7 @@ Please note that the latter prevails here.  If multiple modules all fight to cus
 
 ## Environment Variables
 
-Uncatch recognizes the following environment variables if set to any true value:
+Uncatch recognizes the following environment variables, if they are set to any true value:
 
 | Variable | Description |
 |----------|-------------|
@@ -82,7 +82,7 @@ Uncatch recognizes the following environment variables if set to any true value:
 
 For example, to temporarily disable Uncatch, run your app thusly:
 
-```
+```sh
 NO_UNCATCH=1 node your-app.js
 ```
 
@@ -90,7 +90,7 @@ NO_UNCATCH=1 node your-app.js
 
 **The MIT License (MIT)**
 
-*Copyright (c) 2017 - 2021 Joseph Huckaby*
+*Copyright (c) 2017 - 2024 Joseph Huckaby*
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
